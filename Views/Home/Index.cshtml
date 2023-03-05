@@ -1,8 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<BooksListitingApis.Models.Books>
+@{
 }
+<h1>List of Books</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th> </th>
+        </tr>
+  
+    </thead>
+    <tbody>
+        @if(Model !=null){
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        
+        @foreach (var Books in Model)
+        {
+            
+        
+       // @foreach (var Books in BooksListitingApis.Model)
+        {
+            <tr>
+                <td>@Books.Id</td>
+                <td>@Books.Title</td>
+                <td>@Books.Author</td>
+                <td>@Books.ISBN</td>
+                
+                <td><a href="Book/View/@Books.Id" />View</td>
+            </tr>
+        }
+        }
+        }
+    </tbody>
+</table>
+
+
